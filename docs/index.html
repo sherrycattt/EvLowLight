@@ -27,22 +27,258 @@
 </head>
 <body>
 
-
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="is-size-3 publication-authors">Coherent Event Guided Low-Light Video Enhancement</h1>
-          <br></br>
+          <h1 class="title is-1 publication-title">Coherent Event Guided Low-Light Video Enhancement</h1>
           <div class="is-size-5 publication-authors">
-            <span class="author-block">Coming soon</span>
+            <span class="author-block">
+              <a href="https://sherrycattt.github.io/">Jinxiu Liang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://yixinyang-00.github.io/">Yixin Yang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://camera.pku.edu.cn/People.htm">Boyu Li</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=VqF8ZNYAAAAJ">Peiqi Duan</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=1hx5iwEAAAAJ">Yong Xu</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://camera.pku.edu.cn/People.htm">Boxin Shi</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Peking University,</span>
+            <span class="author-block"><sup>2</sup>South China University of Technology</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://camera.pku.edu.cn"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://youtu.be/zLz0GTTXwZg"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/sherrycattt/EvLowLight"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/teaser.jpg" class="interpolation-image" alt="Teaser."/>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">EvLowLight</span> reconstructs high-quality videos from hybrid inputs of low-light frames and events.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            With frame-based cameras, capturing fast-moving scenes without suffering from blur often 
+            comes at the cost of low SNR and low contrast. Worse still, the photometric constancy that
+             enhancement techniques heavily relied on is fragile for frames with short exposure. 
+             Event cameras can record brightness changes at an extremely high temporal resolution. 
+             For low-light videos, event data are not only suitable to help capture temporal correspondences
+              but also provide alternative observations in the form of intensity ratios between 
+              consecutive frames and exposure-invariant information. 
+              Motivated by this, we propose a low-light video enhancement method with hybrid inputs of events and frames.
+            Specifically, a neural network is trained to establish spatiotemporal coherence between 
+            visual signals with different modalities and resolutions by constructing correlation volume 
+            across space and time. Experimental results on synthetic and real data demonstrate the superiority 
+            of the proposed method compared to the state-of-the-art methods.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Method</h2>
+          <img src="./static/images/method-v8.jpg" class="interpolation-image" alt="Method."/>
+          <p>
+            An overview of the proposed method. 
+            All-pair correlation volumes between each pixel of events and frames are computed from their features 
+            by using the proposed multimodal coherence modeling module firstly, which enables the event features to 
+            be aligned and the optical flow to be jointly estimated. In the subsequent module of temporal coherence propagation, 
+            observations corresponding to the same scene point are sampled and propagated across time to estimate the underlying 
+            clean frame. Parallelly, exposure parameters are extracted from both events and frames to produce a high-quality frame.
+          </p>
+        </div>
+      </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Results on synthetic data</h2>
+          <img src="./static/images/results_synthetic.jpg" class="interpolation-image" alt="Results on synthetic data."/>
+        </div>
+      </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="title is-3">Results on real data</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <img src="./static/images/results_real.jpg" class="interpolation-image" alt="Results on real data."/>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="title is-3">References</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              [1] S. Zhang, Y. Zhang, Z. Jiang, D. Zou, J. Ren, and B. Zhou, 
+              “Learning to See in the Dark with Events,” 
+              ECCV, 2020.
+            </p>
+            <p>
+              [2] H. Rebecq, R. Ranftl, V. Koltun, and D. Scaramuzza, 
+              “Events-To-Video: Bringing Modern Computer Vision to Event Cameras,” 
+              CVPR, 2019.
+            </p>
+            <p>
+              [3] X. Guo, Y. Li, and H. Ling, “LIME: Low-Light Image Enhancement via Illumination Map Estimation,” 
+              IEEE TIP, 2017.
+            </p>
+            <p>
+              [4] W. Wu, J. Weng, P. Zhang, X. Wang, W. Yang, and J. Jiang, 
+              “URetinex-Net: Retinex-Based Deep Unfolding Network for Low-Light Image Enhancement,” 
+              CVPR, 2022.
+            </p>
+            <p>
+              [5] X. Xu, R. Wang, C.-W. Fu, and J. Jia, “SNR-Aware Low-Light Image Enhancement,” 
+              CVPR, 2022.
+            </p>
+            <p>
+              [6] L. Ma, T. Ma, R. Liu, X. Fan, and Z. Luo, 
+              “Toward Fast, Flexible, and Robust Low-Light Image Enhancement,”
+              CVPR, 2022.
+              </p>
+              <p>
+              [7] F. Lv, F. Lu, J. Wu, and C. Lim, 
+              “MBLLEN: Low-Light Image/Video Enhancement Using CNNs,”
+              BMVC, 2018.
+              </p>
+              <p>
+              [8] R. Wang, X. Xu, C.-W. Fu, J. Lu, B. Yu, and J. Jia, 
+              “Seeing Dynamic Scene in the Dark: A High-Quality Video Dataset With Mechatronic Alignment,” 
+              ICCV, 2021.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{liang2023evlowlight,
+  author    = {Liang, Jinxiu and Yang, Yixin and Li, Boyu and Duan, Peiqi and Xu, Yong and Shi, Boxin},
+  title     = {Coherent Event Guided Low-Light Video Enhancement},
+  journal   = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+  year      = {2023},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
