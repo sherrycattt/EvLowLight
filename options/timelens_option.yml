@@ -1,0 +1,53 @@
+# general settings
+name: EvLowLight
+model_type: EventVideoRecurrentTestModel
+#scale: 2
+num_gpu: 1  # official: 8 GPUs
+manual_seed: 0
+find_unused_parameters: true
+
+# dataset and data loader settings
+datasets:
+  val:
+    name: TimeLens
+    type: EventVideoRecurrentTestDataset
+
+    data_keys: ['ev', 'lq', 'gt' ]  #TODO: 'ev', 'lq', 'gt'
+    ev_file_ext: .npy
+    center_frame_only: true   #TODO:  [false], true
+    filename_tmpl_ev: save.txt  #TODO: save.txt, events.h5, output.h5
+    meta_info_file: data/meta_info/meta_info_real_timelens.txt    #TODO: meta info
+    load_size: [ 640, 480 ]  #TODO: (854, 480)  (480, 320) (1280, 924)
+#    real_ev_size: [305, 250]  # (320, 240), (346, 260), (960, 540)
+
+    dataroot_gt: datasets/timelens/low
+    dataroot_lq: datasets/timelens/low
+    dataroot_ev: datasets/timelens/voxels
+
+    scale: 1  #TODO:  2, 1
+    filename_tmpl: 06d
+    filename_ext: png
+
+    num_frame: 5  # -1 not needed
+    padding: reflection
+    minimum_size: 16  #  8 * scale
+
+# network structures
+network_g:
+  type: EvLowLightNet
+  mid_channels: 64
+  num_blocks: 7
+  ev_flow_factor: 0.2
+  prop_iter: 1
+  flow_iter: 6
+
+# path
+path:
+  pretrain_network_g: experiments/pretrained_models/EvLowLightNet.pth
+  strict_load_g: false
+
+# validation settings
+val:
+  save_img: true   # false
+  suffix: null
+  metrics: ~
