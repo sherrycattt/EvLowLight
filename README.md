@@ -49,7 +49,7 @@ pip install -r requirements.txt
 
 ## <a name="inference"></a>Inference
 
-We provide some examples for inference, check [inference.py](inference.py) for more arguments.
+We provide an example for inference, check [options/**_option.yml](options/timelens_option.yml) for more arguments.
 
 ```shell
 python inference.py -opt options/timelens_option.yml

@@ -1,5 +1,9 @@
+tb-nightly==2.14.0a20230511 --index-url https://mirrors.aliyun.com/pypi/simple
 basicsr==1.4.2
-numpy>=1.17
 opencv-python
-torch==1.9.0
-torchvision==0.10.0
+torch==1.13.1
+torchvision==0.14.1
+kornia
+matplotlib
+pathlib2
+h5py
