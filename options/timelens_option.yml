@@ -20,9 +20,9 @@ datasets:
     load_size: [ 640, 480 ]  #TODO: (854, 480)  (480, 320) (1280, 924)
 #    real_ev_size: [305, 250]  # (320, 240), (346, 260), (960, 540)
 
-    dataroot_gt: datasets/timelens/low
-    dataroot_lq: datasets/timelens/low
-    dataroot_ev: datasets/timelens/voxels
+    dataroot_gt: ../datasets/timelens/low
+    dataroot_lq: ../datasets/timelens/low
+    dataroot_ev: ../datasets/timelens/voxels
 
     scale: 1  #TODO:  2, 1
     filename_tmpl: 06d
